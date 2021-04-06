@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import tensorflow.compat.v1 as tf
+#import tensorflow.compat.v1 as tf
+import tensorflow._api.v2.compat.v1 as tf
 tf.disable_v2_behavior()
 
 a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
