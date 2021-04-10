@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import minpy.numpy as np
-import minpy.numpy.random as random
+import tensorflow._api.v2.experimental.numpy as np
+import tensorflow._api.v2.experimental.numpy.random as random
 import time
 
 a = random.rand(3000, 2000)

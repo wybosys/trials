@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import minpy.numpy as np
-import minpy.numpy.random as random
+import cupy as np
+import cupy.random as random
 import time
 
 a = random.rand(3000, 2000)
