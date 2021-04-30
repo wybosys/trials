@@ -1,4 +1,4 @@
-package main
+package test
 
 import (
 	"bufio"
@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"runtime"
 	"sync"
 	"time"
 )
@@ -144,7 +143,7 @@ func TestDead() {
 	}()
 
 	go func() {
-		mtx.Unlock()		
+		mtx.Unlock()
 	}()
 
 	mtx.Lock()
@@ -161,7 +160,7 @@ func TestDead() {
 	*/
 }
 
-func main() {
+func TestBase() {
 	logger.Start()
 
 	//Test()
