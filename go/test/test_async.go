@@ -160,7 +160,7 @@ func TestDead() {
 	*/
 }
 
-func TestBase() {
+func Test() {
 	logger.Start()
 
 	//Test()
