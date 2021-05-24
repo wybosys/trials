@@ -1,0 +1,14 @@
+package main
+
+//import "github.com/wybosys/trials/go2/test"
+import "fmt"
+
+func TestPrint[T interface{}](v T) {
+	fmt.Println(v)
+}
+
+func main() {
+	// test.TestPrint("hello, go2")
+	TestPrint("hello, go2")
+	TestPrint(1234567)
+}

@@ -2,6 +2,6 @@ package test
 
 import "fmt"
 
-func TestPrint() {
-	fmt.Println("PASS-X")
+func TestPrint(v interface{}) {
+	fmt.Println("PASS-X", v)
 }
