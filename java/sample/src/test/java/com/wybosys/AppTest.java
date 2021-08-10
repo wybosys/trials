@@ -11,6 +11,8 @@ import junit.framework.TestSuite;
 public class AppTest extends TestCase {
     public AppTest(String testName) {
         super(testName);
+
+        AES.Init();
     }
 
     public static Test suite() {
@@ -22,7 +24,9 @@ public class AppTest extends TestCase {
     public void testApp() throws Exception {
         AES.KEY = RandomStringUtils.randomAscii(16);
         AES.IV = RandomStringUtils.randomAscii(16);
-        AES.METHOD = "AES/CBC/PKCS5Padding";
+
+        // AES.METHOD = "AES/CBC/PKCS5Padding";
+        AES.METHOD = "AES/CBC/PKCS7Padding";
 
         _log.info(AES.KEY);
         _log.info(AES.IV);

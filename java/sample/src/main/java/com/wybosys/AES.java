@@ -1,18 +1,23 @@
 package com.wybosys;
 
-import java.nio.charset.StandardCharsets;
+import org.apache.commons.codec.binary.Hex;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Hex;
+import java.nio.charset.StandardCharsets;
+import java.security.Security;
 
 public class AES {
 
     public static String KEY;
     public static String IV;
     public static String METHOD = "AES/CBC/NoPadding";
+
+    public static void Init() {
+        Security.addProvider(new BouncyCastleProvider());
+    }
 
     public static String Encrypt(String plain) throws Exception {
         Cipher cipher = Cipher.getInstance(METHOD);
