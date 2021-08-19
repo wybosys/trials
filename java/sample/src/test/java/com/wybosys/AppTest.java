@@ -42,6 +42,8 @@ public class AppTest extends TestCase {
         pipe.next("B").local("abc", 100).localInc("abc");
         assertEquals(pipe.global("abc"), 124);
         assertEquals(pipe.local("abc"), 101);
+        pipe.next("C");
+        
         _log.info(pipe.toString());
     }
 }

@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 public class Pipeline {
 
-    private static class Stack implements Cloneable {
+    private static class Stack {
 
         // 全局变量
         private final HashMap<String, Object> _globals = new HashMap<>();
@@ -72,15 +72,10 @@ public class Pipeline {
             tag = str;
         }
 
-        @Override
         public Stack clone() {
-            try {
-                Stack clone = (Stack) super.clone();
-                clone._globals.putAll(_globals);
-                return clone;
-            } catch (CloneNotSupportedException e) {
-                throw new AssertionError();
-            }
+            Stack r = new Stack();
+            r._globals.putAll(_globals);
+            return r;
         }
     }
 
@@ -182,16 +177,16 @@ public class Pipeline {
             if (!_stacks.isEmpty()) {
                 sb.append("STACKS:{");
                 for (Stack each : _stacks) {
-                    sb.append(each.getTag()).append(":{");
+                    sb.append(" ").append(each.getTag()).append(":{");
                     if (!each.getGlobals().isEmpty()) {
-                        sb.append("globals:{");
+                        sb.append(" globals:{");
                         each.getGlobals().forEach((name, val) -> {
                             sb.append(name).append("=").append(val).append("|");
                         });
                         sb.append("}");
                     }
                     if (!each.getLocals().isEmpty()) {
-                        sb.append("locals:{");
+                        sb.append(" locals:{");
                         each.getLocals().forEach((name, val) -> {
                             sb.append(name).append("=").append(val).append("|");
                         });
