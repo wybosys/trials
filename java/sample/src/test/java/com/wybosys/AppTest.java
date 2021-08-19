@@ -36,5 +36,12 @@ public class AppTest extends TestCase {
         String cyp = AES.Encrypt(plain);
         String tgt = AES.Decrypt(cyp);
         assertEquals(tgt, plain);
+
+        Pipeline pipe = new Pipeline();
+        pipe.next("A").global("abc", 123).globalInc("abc");
+        pipe.next("B").local("abc", 100).localInc("abc");
+        assertEquals(pipe.global("abc"), 124);
+        assertEquals(pipe.local("abc"), 101);
+        _log.info(pipe.toString());
     }
 }
