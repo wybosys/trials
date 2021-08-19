@@ -167,6 +167,7 @@ public class Pipeline {
     public String toString() {
         try {
             StringBuilder sb = new StringBuilder();
+            sb.append("PIPELINE: ");
             if (!_infos.isEmpty()) {
                 sb.append("INFO:{");
                 for (String each : _infos) {

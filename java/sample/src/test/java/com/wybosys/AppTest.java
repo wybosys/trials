@@ -38,12 +38,13 @@ public class AppTest extends TestCase {
         assertEquals(tgt, plain);
 
         Pipeline pipe = new Pipeline();
+        pipe.local("xxx", "yyy").localInc("xxx");
         pipe.next("A").global("abc", 123).globalInc("abc");
         pipe.next("B").local("abc", 100).localInc("abc");
         assertEquals(pipe.global("abc"), 124);
         assertEquals(pipe.local("abc"), 101);
         pipe.next("C");
-        
+
         _log.info(pipe.toString());
     }
 }
