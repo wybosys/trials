@@ -44,8 +44,14 @@ class Test {
         throw `T:${msg}`
     }
 
+    @anno()
+    b(msg: string) {
+        return msg
+    }
+
 }
 
 let t = new Test()
 t.a("hello")
 t.test("async hello")
+console.info(t.b("b hello"))
