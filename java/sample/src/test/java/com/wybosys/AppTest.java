@@ -1,14 +1,20 @@
 package com.wybosys;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
+import org.joda.time.chrono.ISOChronology;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 public class AppTest extends TestCase {
+
     public AppTest(String testName) {
         super(testName);
 
@@ -46,5 +52,29 @@ public class AppTest extends TestCase {
         pipe.next("C");
 
         _log.info(pipe.toString());
+    }
+
+    public void testTime() {
+        DateTime jdt = DateTime.now();
+        _log.info(jdt.toString());
+
+        DateTime jdtutc = DateTime.now(ISOChronology.getInstanceUTC());
+        _log.info(jdtutc.toString());
+
+        java.time.LocalDateTime dt = java.time.LocalDateTime.parse(jdt.toString(),
+                DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+        _log.info(dt.toString());
+
+        dt = java.time.LocalDateTime.parse(jdtutc.toString(), DateTimeFormatter.ISO_DATE_TIME);
+        _log.info(dt.toString());
+
+        LocalDateTime jldt = LocalDateTime.now();
+        _log.info(jldt.toString());
+
+        org.joda.time.LocalDate jd = org.joda.time.LocalDate.now();
+        _log.info(jd.toDateTimeAtStartOfDay().toDateTime(ISOChronology.getInstanceUTC()).toString());
+
+        LocalDate d = LocalDate.now();
+        _log.info(d.toString());
     }
 }
