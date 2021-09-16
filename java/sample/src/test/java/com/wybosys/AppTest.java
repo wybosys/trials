@@ -71,8 +71,9 @@ public class AppTest extends TestCase {
         LocalDateTime jldt = LocalDateTime.now();
         _log.info(jldt.toString());
 
-        org.joda.time.LocalDate jd = org.joda.time.LocalDate.now();
-        _log.info(jd.toDateTimeAtStartOfDay().toDateTime(ISOChronology.getInstanceUTC()).toString());
+        org.joda.time.LocalDate jld = org.joda.time.LocalDate.now();
+        _log.info(jld.toDateTimeAtStartOfDay().toDateTime(ISOChronology.getInstanceUTC()).toString());
+        _log.info(jld.toInterval().toString());
 
         LocalDate d = LocalDate.now();
         _log.info(d.toString());
