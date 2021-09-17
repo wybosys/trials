@@ -32,6 +32,16 @@
       <artifactId>joda-time</artifactId>
       <version>2.9.9</version>
     </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.60</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.20</version>
+    </dependency>
 
     <!-- AES-PKCS7 -->
     <dependency>
