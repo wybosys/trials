@@ -31,6 +31,10 @@ public class AppTest extends TestCase {
     public void testTriple() {
         List<String> nullst = null;
         assertEquals(0, nullst == null ? 0 : nullst.size());
+
+        Integer num = null;
+        assertNull(false ? Integer.valueOf(0) : num);
+        // assertNull(false ? 0 : num); // throw null pointer exception https://blog.csdn.net/iteye_15878/article/details/82203140
     }
 
     public void testApp() throws Exception {
