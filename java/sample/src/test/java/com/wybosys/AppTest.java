@@ -2,6 +2,7 @@ package com.wybosys;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -28,13 +29,18 @@ public class AppTest extends TestCase {
 
     private Logger _log = Logger.getLogger("test");
 
+    public Integer retNull() {
+        return null;
+    }
+
     public void testTriple() {
         List<String> nullst = null;
         assertEquals(0, nullst == null ? 0 : nullst.size());
+        // assertEquals(0, nullst != null ? 1 : retNull());
 
-        Integer num = null;
-        assertNull(false ? Integer.valueOf(0) : num);
-        // assertNull(false ? 0 : num); // throw null pointer exception https://blog.csdn.net/iteye_15878/article/details/82203140
+        assertNull(false ? 0 : null);
+        Integer xx = null;
+        assertNull(false ? 0 : xx);
     }
 
     public void testApp() throws Exception {
