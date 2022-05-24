@@ -2,6 +2,8 @@ package com.wybosys;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -26,6 +28,20 @@ public class AppTest extends TestCase {
     }
 
     private Logger _log = Logger.getLogger("test");
+
+    public Integer retNull() {
+        return null;
+    }
+
+    public void testTriple() {
+        List<String> nullst = null;
+        assertEquals(0, nullst == null ? 0 : nullst.size());
+        // assertEquals(0, nullst != null ? 1 : retNull());
+
+        assertNull(false ? 0 : null);
+        Integer xx = null;
+        assertNull(false ? 0 : xx);
+    }
 
     public void testApp() throws Exception {
         AES.KEY = RandomStringUtils.randomAscii(16);
