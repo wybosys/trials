@@ -18,7 +18,21 @@ class Test {
 
     }
 
+
+}
+
+class T {
+    
+    companion object TEST {
+
+        fun Proc() {
+            println("TEST:Proc")
+        }
+
+    }
+
 }
 
 val t = Test()
 println(if (t.uniqueobject() === t.uniqueobject()) "eq" else "uneq")
+T.TEST.Proc()
