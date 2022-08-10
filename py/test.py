@@ -3,6 +3,7 @@ from time import sleep
 import six
 import abc
 import inspect
+import toml
 
 
 def d0(*args):
@@ -132,5 +133,12 @@ def TestE():
     # e exit
 
 
+def TestToml():
+    a = toml.loads('\n'.join(open('../data/test.toml').readlines()))
+    print(a)
+
+
 TestE()
+TestToml()
+
 sleep(10)
