@@ -36,3 +36,5 @@ class T {
 val t = Test()
 println(if (t.uniqueobject() === t.uniqueobject()) "eq" else "uneq")
 T.TEST.Proc()
+
+println(null + "abc")
