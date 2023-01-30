@@ -78,3 +78,5 @@ node_modules
 *.pyc
 __pycache__
 .~*
+.import
+.mono
