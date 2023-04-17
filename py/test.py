@@ -4,6 +4,7 @@ import six
 import abc
 import inspect
 import toml
+from codecs import open
 
 
 def d0(*args):
@@ -20,11 +21,12 @@ def d1(func):
 
 def c0(clz):
     def func(v):
-        print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+        print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
         print(v)
         return clz
+
     # print("c0")
-    #setattr(clz, 'abc', 'ffffffffffff')
+    # setattr(clz, 'abc', 'ffffffffffff')
     # return clz
     return func
 
@@ -35,13 +37,12 @@ def Fp0(*args):
 
 
 class A:
-
-    #abc = Fp0()
+    # abc = Fp0()
     cde = 123
 
     def __init__(self):
         print(self.abc)
-        self.abc = 'abc'
+        self.abc = "abc"
         print(self.abc)
         self.cde = 0
         print(self.cde)
@@ -49,37 +50,32 @@ class A:
 
     # @d1
     def a(self):
-        print('A:a()')
+        print("A:a()")
 
 
 class F:
-
     def __init__(self):
         print("F")
 
 
 class B(F):
-
     def __init__(self):
         super().__init__()
         print("B")
 
 
 class C:
-
     def __init__(self):
         print("C")
 
 
 class G(C):
-
     def __init__(self):
         # super().__init__()
         print("G")
 
 
 class E:
-
     def __init__(self):
         print("E")
 
@@ -97,14 +93,12 @@ def subinits(obj):
 
 
 class D(B, C, E):
-
     def __init__(self):
         subinits(self)
         print("D")
 
 
 class E:
-
     def __enter__(self):
         print("e::enter")
         return self
@@ -125,7 +119,7 @@ print(X.a)
 def TestE():
     with E() as e:
         print(e)
-        #raise BaseException("e")
+        # raise BaseException("e")
         print("e run")
     with e:
         print("e run 2")
@@ -134,11 +128,23 @@ def TestE():
 
 
 def TestToml():
-    a = toml.loads('\n'.join(open('../data/test.toml').readlines()))
+    a = toml.loads("\n".join(open("../data/test.toml", "r", "utf-8").readlines()))
     print(a)
 
 
 TestE()
 TestToml()
 
-sleep(10)
+
+class AA:
+    def __init__(self) -> None:
+        print("AA")
+
+
+class BB(AA):
+    def __init__(self) -> None:
+        super().__init__()
+        print("BB")
+
+
+BB()
