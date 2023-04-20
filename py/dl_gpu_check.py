@@ -1,5 +1,7 @@
 import tensorflow as tf
 import torch
+import pkg_resources
+import platform
 
 if torch.cuda.is_available():
     print(torch.cuda.get_device_name())
@@ -13,5 +15,10 @@ if tf.test.is_gpu_available():
     print("\n\ntensorflow: True")
 else:
     print("\n\ntensorflow: False")
+    if platform.system() == "Windows":
+        ver = pkg_resources.parse_version(tf.version.VERSION)
+        if ver.minor > 10:
+            print("windows上的tensorflow如果需要gpu支持必须安装<=2.10.0")
+
 if not tf.test.is_built_with_cuda():
     print("tensorflow-gpu not install")
