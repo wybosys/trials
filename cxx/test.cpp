@@ -37,6 +37,7 @@ void Test()
 
 int main()
 {
+    Test();
     ::std::cout << abc << std::endl;
     return 0;
 }
