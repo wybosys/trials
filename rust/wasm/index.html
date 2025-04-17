@@ -1,0 +1,21 @@
+<html>
+<script src="pkg/wasm.js"></script>
+<script>
+    let WASM
+
+    wasm_bindgen().then(wasm => {
+        WASM = wasm
+    })
+
+    function act_click() {
+        alert()
+        WASM.greet("rust")
+    }
+</script>
+
+<body>
+    <div>RUST+WASM</div>
+    <button onclick="act_click()">GREET</button>
+</body>
+
+</html>

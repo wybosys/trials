@@ -1,0 +1,11 @@
+{
+  "appId": "com.wybosys.test.cap",
+  "appName": "test",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+option go_package = "./test";
+
+package test;
+
+message ModelUser {
+
+    string name = 1;
+    optional int32 age = 2;
+    repeated string address = 3;
+
+}

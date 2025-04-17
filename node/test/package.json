@@ -1,0 +1,16 @@
+{
+  "name": "trials",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devops": "pm2 start ./index.js -i max --name $PROJECT",
+    "devops-restart": "pm2 restart all",
+    "devops-stop": "pm2 stop all",
+    "develop": "node ./index.js --develop",
+    "develop-cluster": "pm2 start ./index.js -i max --name nntlogic --watch ./bin -- --develop",
+    "distribution": "pm2 start ./index.js -i max --name nntlogic --watch ./bin",
+    "gendata": "node ./index.js --server gendata"
+  },
+  "author": "wybosys@gmail.com"
+}

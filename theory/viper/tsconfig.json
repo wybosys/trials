@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "esnext",
+      "outDir": "bin",
+      "sourceMap": true,
+      "removeComments": true,
+      "experimentalDecorators": true,
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "alwaysStrict": true,
+      "moduleResolution": "node"
+    }
+}
