@@ -1,9 +1,10 @@
 #!/usr/bin/env kotlin
 
-// @file:Repository("https://maven.aliyun.com/repository/public")
-// @file:DependsOn("com.google.code.gson:gson:2.10.1")
+@file:Repository("https://maven.aliyun.com/repository/public")
+@file:DependsOn("com.google.code.gson:gson:2.10.1")
 
 import kotlin.math.absoluteValue
+import com.google.gson.Gson
 
 open class A {
 
@@ -67,8 +68,30 @@ fun TestPoly() {
     require(d.process3(e) == "E")
 }
 
+open class JsonA {
+    open var a = "a"
+}
+
+open class JsonB: JsonA() {
+    init {
+        a = "b"
+    }
+}
+
+open class JsonC: JsonA() {
+    init {
+        a = "c"
+    }
+}
+
 fun TestJson() {
-    
+    val gson = Gson()
+    val jstr = gson.toJson(JsonB())
+    println(jstr)
+    var ja = gson.fromJson(jstr, JsonA::class.java)
+    require(ja.a == "b")
+    ja = gson.fromJson(jstr, JsonC::class.java)
+    require(ja.a == "b")
 }
 
 fun TestMath() {
